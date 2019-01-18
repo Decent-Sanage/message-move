@@ -23,7 +23,9 @@ exports.run = async (client, message, args) => {
     await wh.send(m.content, {disableEveryone: true, username: m.author.username, avatarURL: m.author.displayAvatarURL})
     await wh.delete('Did its job')
 
-    message.channel.send(':white_check_mark: The message has been successfully moved')
+    await m.delete()
+
+    message.channel.send(':white_check_mark: The message has been successfully moved, and the original has been deleted')
 
 
   }).catch((e) => {
